@@ -1,0 +1,685 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Healthy Lifestyle Guide</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --green: #46684d;
+    --dark-green: #2e4936;
+    --sage: #dce8d7;
+    --cream: #faf9f3;
+    --text: #39483b;
+    --muted: #788578;
+    --white: #ffffff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 25px;
+}
+
+/* NAVIGATION */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 25px;
+    background: white;
+    border-radius: 16px;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.04);
+}
+
+.logo {
+    color: var(--green);
+    font-family: Georgia, serif;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+nav a {
+    color: var(--green);
+    text-decoration: none;
+    margin-left: 18px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #9baf85;
+}
+
+/* HERO */
+
+.hero {
+    background: linear-gradient(135deg, #304f3d, #81977b);
+    color: white;
+    text-align: center;
+    padding: 65px 30px;
+    border-radius: 25px;
+    margin-bottom: 30px;
+}
+
+.hero .subtitle {
+    letter-spacing: 4px;
+    font-size: 12px;
+    margin-bottom: 12px;
+    opacity: 0.8;
+}
+
+.hero h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(35px, 6vw, 55px);
+    font-weight: normal;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: auto;
+}
+
+/* GENERAL SECTIONS */
+
+section {
+    margin-bottom: 30px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 18px rgba(55,75,50,0.05);
+    border: 1px solid #e6e9df;
+}
+
+.section-label {
+    color: #81977b;
+    letter-spacing: 3px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-family: Georgia, serif;
+    color: var(--green);
+    font-size: 29px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    color: var(--green);
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 12px;
+}
+
+.intro p {
+    text-align: justify;
+}
+
+/* NAVIGATION BUTTONS */
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+button {
+    background: var(--green);
+    color: white;
+    border: none;
+    padding: 13px 22px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.25s;
+}
+
+button:hover {
+    background: var(--dark-green);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* TIP DISPLAY */
+
+#messageBox {
+    min-height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #edf2e8;
+    padding: 30px;
+    border-radius: 18px;
+    color: var(--green);
+    font-size: 17px;
+    margin-top: 20px;
+}
+
+/* CONTENT GRID */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.info-card {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    border: 1px solid #e4e9df;
+    transition: 0.25s;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(50,80,50,0.08);
+}
+
+.info-card .icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+/* CHECKLIST */
+
+.habit-list {
+    display: grid;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.habit-list label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #edf2e8;
+    padding: 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.habit-list label:hover {
+    background: #dce8d5;
+}
+
+.habit-list input {
+    accent-color: var(--green);
+    width: 18px;
+    height: 18px;
+}
+
+#progress {
+    color: var(--green);
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* WATER TRACKER */
+
+.water-tracker {
+    text-align: center;
+    background: #e8f2f3;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.water-tracker h2 {
+    color: #477985;
+}
+
+.water-count {
+    font-size: 38px;
+    color: #477985;
+    font-weight: bold;
+    margin: 15px;
+}
+
+.water-tracker button {
+    background: #477985;
+    margin: 5px;
+}
+
+.water-tracker button:hover {
+    background: #315c66;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* MOBILE */
+
+@media(max-width: 700px) {
+    .container {
+        padding: 15px;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav a {
+        margin: 0 6px;
+    }
+
+    .hero {
+        padding: 45px 20px;
+    }
+
+    .card {
+        padding: 22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- NAVIGATION -->
+<nav>
+    <div class="logo">🌿 Healthy Living</div>
+
+    <div>
+        <a href="#home">Home</a>
+        <a href="#nutrition">Nutrition</a>
+        <a href="#exercise">Exercise</a>
+        <a href="#mental">Wellness</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="home">
+    <div class="subtitle">YOUR EVERYDAY WELLNESS GUIDE</div>
+
+    <h1>Healthy Lifestyle</h1>
+
+    <p>
+        Small habits, meaningful changes, and a healthier way of living.
+        Discover simple ways to care for your body and mind.
+    </p>
+</header>
+
+<!-- INTRODUCTION -->
+<section class="card intro">
+
+    <div class="section-label">Introduction</div>
+
+    <h2>Living Well, Every Day</h2>
+
+    <p>
+        A sustainable, healthy lifestyle is an essential foundation
+        for people with physically and mentally demanding daily routines.
+        Many individuals who face heavy, exhausting work schedules often
+        overlook self-care, which gradually takes a toll on their
+        long-term well-being. Learning practical health knowledge and
+        building consistent healthy habits helps busy workers maintain
+        their energy levels, protect their bodies from burnout, and keep
+        pace with peers who prioritize wellness.
+    </p>
+
+    <p>
+        Healthy living does not require perfection. Small, consistent
+        improvements in nutrition, movement, rest, and mental well-being
+        can support a healthier everyday life.
+    </p>
+
+</section>
+
+<!-- HEALTH TIPS -->
+<section class="card">
+
+    <div class="section-label">Daily Inspiration</div>
+
+    <h2>Healthy Lifestyle Tips</h2>
+
+    <p>Click a button to discover a helpful reminder.</p>
+
+    <div class="button-group">
+        <button onclick="showTip('water')">💧 Hydration</button>
+        <button onclick="showTip('food')">🥗 Nutrition</button>
+        <button onclick="showTip('sleep')">🌙 Sleep</button>
+        <button onclick="showTip('movement')">🏃 Movement</button>
+        <button onclick="showTip('mind')">🧠 Mental Health</button>
+    </div>
+
+    <div id="messageBox">
+        Choose a healthy habit above to discover a tip!
+    </div>
+
+</section>
+
+<!-- NUTRITION -->
+<section id="nutrition">
+
+    <div class="section-label">Nourish Your Body</div>
+
+    <h2>Nutrition & Balanced Eating</h2>
+
+    <div class="grid">
+
+        <div class="info-card">
+            <div class="icon">🥦</div>
+            <h3>Eat Balanced Meals</h3>
+            <p>
+                Include vegetables, fruits, grains, protein-rich foods,
+                and other nourishing foods in your meals.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="icon">🍎</div>
+            <h3>Enjoy Fruits</h3>
+            <p>
+                Fruits provide vitamins, minerals, and fiber that
+                support overall health.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="icon">💧</div>
+            <h3>Stay Hydrated</h3>
+            <p>
+                Drink water regularly throughout the day.
+                Your needs vary depending on activity and environment.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- EXERCISE -->
+<section id="exercise">
+
+    <div class="section-label">Move & Feel Better</div>
+
+    <h2>Physical Activity</h2>
+
+    <div class="grid">
+
+        <div class="info-card">
+            <div class="icon">🚶</div>
+            <h3>Walking</h3>
+            <p>
+                Walking is a simple way to incorporate movement
+                into your daily routine.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="icon">🧘</div>
+            <h3>Stretching</h3>
+            <p>
+                Gentle stretching can help improve flexibility
+                and relieve everyday muscle tension.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="icon">🚴</div>
+            <h3>Active Hobbies</h3>
+            <p>
+                Dancing, cycling, swimming, and recreational sports
+                are enjoyable ways to stay active.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- MENTAL WELLNESS -->
+<section id="mental">
+
+    <div class="section-label">Care For Your Mind</div>
+
+    <h2>Mental Health & Self-Care</h2>
+
+    <div class="grid">
+
+        <div class="info-card">
+            <div class="icon">🌸</div>
+            <h3>Take Breaks</h3>
+            <p>
+                Give yourself time to rest during demanding
+                activities and responsibilities.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="icon">📖</div>
+            <h3>Enjoy Your Hobbies</h3>
+            <p>
+                Make time for activities that bring you joy,
+                relaxation, and creativity.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="icon">🤝</div>
+            <h3>Connect With Others</h3>
+            <p>
+                Talking with trusted friends, family, or supportive
+                people can help you feel connected.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- DAILY CHECKLIST -->
+<section class="card">
+
+    <div class="section-label">Your Daily Routine</div>
+
+    <h2>Daily Wellness Checklist</h2>
+
+    <p>
+        Check off the habits you complete throughout the day.
+    </p>
+
+    <div class="habit-list">
+
+        <label>
+            <input type="checkbox">
+            Drink water regularly
+        </label>
+
+        <label>
+            <input type="checkbox">
+            Eat nourishing, balanced meals
+        </label>
+
+        <label>
+            <input type="checkbox">
+            Move or exercise comfortably
+        </label>
+
+        <label>
+            <input type="checkbox">
+            Take breaks when needed
+        </label>
+
+        <label>
+            <input type="checkbox">
+            Spend time relaxing
+        </label>
+
+        <label>
+            <input type="checkbox">
+            Get sufficient sleep
+        </label>
+
+    </div>
+
+    <p id="progress">0 of 6 habits completed</p>
+
+</section>
+
+<!-- WATER TRACKER -->
+<section class="water-tracker">
+
+    <h2>💧 Water Tracker</h2>
+
+    <p>Keep track of the glasses of water you've had today.</p>
+
+    <div class="water-count">
+        <span id="waterCount">0</span> glasses
+    </div>
+
+    <button onclick="changeWater(1)">＋ Add Glass</button>
+
+    <button onclick="changeWater(-1)">－ Remove Glass</button>
+
+    <button onclick="resetWater()">Reset</button>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>🌿 Healthy Living • Mindful Choices • Better Tomorrow</p>
+    <p>Take care of yourself, one day at a time.</p>
+</footer>
+
+</div>
+
+<script>
+
+/* HEALTH TIPS */
+
+const tips = {
+
+    water: `
+        💧 <strong>Stay Hydrated</strong><br><br>
+        Drink water regularly throughout the day.
+        Hydration supports normal body functions,
+        temperature regulation, and concentration.
+    `,
+
+    food: `
+        🥗 <strong>Eat Balanced Meals</strong><br><br>
+        Include a variety of nourishing foods in your meals.
+        Fruits, vegetables, grains, and protein sources
+        help support your body's nutritional needs.
+    `,
+
+    sleep: `
+        🌙 <strong>Prioritize Sleep</strong><br><br>
+        Consistent, sufficient sleep supports concentration,
+        emotional well-being, and physical recovery.
+    `,
+
+    movement: `
+        🏃 <strong>Keep Moving</strong><br><br>
+        Find enjoyable ways to stay physically active.
+        Walking, dancing, stretching, and sports
+        can all contribute to everyday movement.
+    `,
+
+    mind: `
+        🧠 <strong>Care For Your Mental Health</strong><br><br>
+        Take breaks, connect with supportive people,
+        and make time for activities that help you relax.
+        Seeking help when needed is also a healthy choice.
+    `
+};
+
+function showTip(type) {
+    document.getElementById("messageBox").innerHTML = tips[type];
+}
+
+/* DAILY CHECKLIST */
+
+const habits = document.querySelectorAll(
+    '.habit-list input[type="checkbox"]'
+);
+
+const progress = document.getElementById("progress");
+
+function updateProgress() {
+
+    const completed = [...habits].filter(
+        habit => habit.checked
+    ).length;
+
+    progress.textContent =
+        `${completed} of ${habits.length} habits completed`;
+
+    if (completed === habits.length) {
+        progress.textContent =
+            "🌿 Wonderful! You've completed your daily checklist!";
+    }
+}
+
+habits.forEach(habit => {
+    habit.addEventListener("change", updateProgress);
+});
+
+/* WATER TRACKER */
+
+let water = 0;
+
+function changeWater(amount) {
+
+    water += amount;
+
+    if (water < 0) {
+        water = 0;
+    }
+
+    document.getElementById("waterCount").textContent = water;
+}
+
+function resetWater() {
+
+    water = 0;
+
+    document.getElementById("waterCount").textContent = water;
+}
+
+</script>
+
+</body>
+</html>
